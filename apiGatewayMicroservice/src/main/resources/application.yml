@@ -1,0 +1,42 @@
+server:
+  port: 9000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,gateway
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      access: unrestricted
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: cake-catalog-service
+              uri: http://cake-catalog-service:8080
+              predicates:
+                - Path=/cakecatalog/**
+            - id: cake-catalog-images
+              uri: http://cake-catalog-service:8080
+              predicates:
+                - Path=/images/**
+
+            - id: order-service
+              uri: http://order-service:8081
+              predicates:
+                - Path=/order/**
+
+            - id: rating-service
+              uri: http://rating-service:8082
+              predicates:
+                - Path=/rating/**
+
+            - id: notification-service
+              uri: http://notification-service:8083
+              predicates:
+                - Path=/notification/**
