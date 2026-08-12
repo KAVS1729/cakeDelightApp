@@ -38,16 +38,19 @@ jobs:
           push: true
           tags: kavscnm/cakedelight_app:notification-service
 
-      - name: Build and push Rating Service
-        uses: docker/build-push-action@v5
-        with:
-          context: ./ratingService
-          push: true
-          tags: kavscnm/cakedelight_app:rating-service
-
+      
       - name: Build and push Cake Catalog
         uses: docker/build-push-action@v5
         with:
           context: ./cakeCatalog
           push: true
           tags: kavscnm/cakedelight_app:cake-catalog
+
+          
+      - name: Build and push Rating Service
+        uses: docker/build-push-action@v5
+        with:
+          context: ./ratingService
+          push: true
+          tags: kavscnm/cakedelight_app:rating-service
+        
