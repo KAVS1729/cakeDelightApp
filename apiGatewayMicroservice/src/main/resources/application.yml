@@ -18,25 +18,26 @@ spring:
         webflux:
           routes:
             - id: cake-catalog-service
-              uri: http://cake-catalog-service:8080
+              uri: http://${CAKE_CATALOG_HOST}:8080
               predicates:
-                - Path=/cakecatalog/**
+                  - Path=/cakecatalog/**
+
             - id: cake-catalog-images
-              uri: http://cake-catalog-service:8080
+              uri: http://${CAKE_CATALOG_HOST}:8080
               predicates:
                 - Path=/images/**
 
             - id: order-service
-              uri: http://order-service:8081
+              uri: http://${ORDER_SERVICE_HOST}:8081
               predicates:
                 - Path=/order/**
 
             - id: rating-service
-              uri: http://rating-service:8082
+              uri: http://${RATING_SERVICE_HOST}:8082
               predicates:
                 - Path=/rating/**
 
             - id: notification-service
-              uri: http://notification-service:8083
+              uri: http://${NOTIFICATION_SERVICE_HOST}:8083
               predicates:
                 - Path=/notification/**
