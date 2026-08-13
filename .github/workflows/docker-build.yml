@@ -22,21 +22,21 @@ jobs:
         with:
           context: ./apiGatewayMicroservice
           push: true
-          tags: kavscnm/cakedelight_app:api-gateway
+          tags: kavscnm/cakedelight_app:api-gateway-v1.0.0
 
       - name: Build and push Order Service
         uses: docker/build-push-action@v5
         with:
           context: ./orderService
           push: true
-          tags: kavscnm/cakedelight_app:order-service
+          tags: kavscnm/cakedelight_app:order-service-v1.0.0
 
       - name: Build and push Notification Service
         uses: docker/build-push-action@v5
         with:
           context: ./notificationService
           push: true
-          tags: kavscnm/cakedelight_app:notification-service
+          tags: kavscnm/cakedelight_app:notification-service-v1.0.0
 
       
       - name: Build and push Cake Catalog
@@ -44,7 +44,7 @@ jobs:
         with:
           context: ./cakeCatalog
           push: true
-          tags: kavscnm/cakedelight_app:cake-catalog
+          tags: kavscnm/cakedelight_app:cake-catalog-v1.0.0
 
           
       - name: Build and push Rating Service
@@ -52,5 +52,5 @@ jobs:
         with:
           context: ./ratingService
           push: true
-          tags: kavscnm/cakedelight_app:rating-service
+          tags: kavscnm/cakedelight_app:rating-service-v1.0.0
         
